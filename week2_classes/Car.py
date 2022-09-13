@@ -1,5 +1,6 @@
 class Car:
     def __init__(self, make, model, year, price):
+        print("I'm in the parent class")
         self.make = make
         self.model = model
         self.year = year
@@ -17,26 +18,24 @@ class AntiqueCar(Car):
 andy_car = Car("toyota", "sequoia", 2001, 40000)
 print(andy_car.calc_value(2022))
 
-chelsea_car = Car("honda", "accord", 1993, 12000)
-print(chelsea_car.calc_value(2022))
+gavin_car = Car("toyota", "corolla", 2022, 40000)
+print(gavin_car.calc_value(2022))
 
-ryan_car = Car("Jeep", "Wrangler", 2011, 30000)
-print(ryan_car.calc_value(2022))
-
-
-kelly_car = AntiqueCar("Pierce", "Arrow", 1922, 1000)
-print(kelly_car.calc_value(2022))
-
-korrie_car = AntiqueCar("Ford", "Stepside", 1960, 3200)
-
-kellys_cars = [andy_car, chelsea_car, ryan_car, kelly_car, korrie_car]
-
-tot_value = sum([my_car.calc_value(2022) for my_car in kellys_cars])
-print("total value of kelly's cars: ", tot_value)
-
-for car in kellys_cars:
-    print(type(car))
+kauri_car = Car("infiniti", "g35x", 2007, 35000)
+print(kauri_car.calc_value(2022))
     
-    
+print("gavin's antique car")
+gavin_antique = AntiqueCar("mercury", "grand marquiex", 1989, 20000)
+print(gavin_antique.calc_value(2022))
+
+andys_dream_car = AntiqueCar("cadillac", "deville", 1978, 15000)
+jenss_car = Car("vw", "jettas", 2020, 30000)
+
+lot_cars = [andy_car, gavin_car, kauri_car, gavin_antique, andys_dream_car, jenss_car]
+
+
+total_value = sum([car.calc_value(2022) for car in lot_cars])
+
+print("total_value: ", total_value)
 
 
