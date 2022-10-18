@@ -19,7 +19,7 @@ class Student:
 andy = Student("a000001", "andy")
 print(andy.get_name())
 
-# print(andy.__anum)
+print(andy.__anum)
 
 andy.set_anum("a00000001")
 

@@ -35,20 +35,36 @@ def insert(node, key):
 	
 	
 # Task 1. Write a function to find the minimum value in the tree
-
+def findMin(node):
+    while True:
+        if node.left == None:
+            print("Minimum Value in Tree: ", node.key)
+            break
+        else:
+            node = node.left
+    return node
 
 # Task 2. Write a recursive findMin function
-
+def findMinRecursive(node):
+    if node.left == None:
+        print("Minimum Value in Tree (Recursive): ", node.key)
+        return node
+    return findMinRecursive(node.left)
+    
     
 # Task 3. Write a findMaxRecursive
-
+def findMaxRecursive(node):
+    if node.right == None:
+        print("Max Value in Tree (Recursive): ", node.key)
+        return
+    findMaxRecursive(node.right)
 
 # print tree inorder
 def inorder(root):
-	if root is not None:
-		inorder(root.left)
-		print(root.key, end=" ")
-		inorder(root.right)
+    if root is not None:
+    	inorder(root.left)
+    	print(root.key, end=" ")
+    	inorder(root.right)
  
 # Task 4. Write a pre-order print
 
@@ -97,7 +113,7 @@ def deleteNode(root, key):
 		# Node with two children: 
 		# Get the inorder successor
 		# (smallest in the right subtree)
-		temp = minValueNode(root.right)
+		temp = findMinRecursive(root.right)
 
 		# Copy the inorder successor's 
 		# content to this node
@@ -124,14 +140,15 @@ def main():
     root = insert(root, 60)
     root = insert(root, 80)
     
-    # finding values in the tree
-    # print(findval(root, 80))
-    # print(findval(root, 10))
+    #task 1 function call
+    findMin(root)
+    findMinRecursive(root)
+    findMaxRecursive(root)
+    
     
     # traversing the tree
     print("Inorder traversal of the given tree")
     inorder(root)
-    # PrintTree(root)
     
     # deleting 
     print("\nDelete 20")
@@ -148,6 +165,7 @@ def main():
     root = deleteNode(root, 50)
     print("Inorder traversal of the modified tree")
     inorder(root)
+    print("\n")
     
     display(root)
     
@@ -160,46 +178,47 @@ def main():
     tree2 = insert(tree2, 5)
     tree2 = insert(tree2, 9)
     
+    print()
     display(tree2)
     inorder(tree2)
     print()
-    preorder(tree2)
+    # preorder(tree2)
     print()
-    postorder(tree2)
+    # postorder(tree2)
     
     print("\nmin value: ", findMin(tree2).key)
-    print("\nmin value recursive: ", findMinRec(tree2).key)
+    print("\nmin value recursive: ", findMinRecursive(tree2).key)
    
             
         
     # create a list of 10000 numbers
-    # lst = [random.randint(1,10000) for i in range(1000000)]
-    # # each number is a random number between 1 and 10000 random.randint(1,10000)
+    lst = [random.randint(1,10000) for i in range(1000000)]
+    # each number is a random number between 1 and 10000 random.randint(1,10000)
     
-    # # in other loop for in 1 to 10000, check to see if i is in the list
-    # start1 = time.time()
-    # for i in range(1,10001):
-    #     for l in lst:
-    #         if i == l:
-    #             break
-    # end1 = time.time()
-    # print("search time list (sec): ", end1-start1)
+    # in other loop for in 1 to 10000, check to see if i is in the list
+    start1 = time.time()
+    for i in range(1,10001):
+        for l in lst:
+            if i == l:
+                break
+    end1 = time.time()
+    print("search time list (sec): ", end1-start1)
     
     
     
-    # root = None
-    # for i in range(1000000):
-    #     root = insert(root, random.randint(1,10000))
+    root = None
+    for i in range(1000000):
+        root = insert(root, random.randint(1,10000))
         
     
-    # start = time.time()
-    # for i in range(10000):
-    #     findval(root, i)
-    # end = time.time()
+    start = time.time()
+    for i in range(10000):
+        findval(root, i)
+    end = time.time()
     
-    # print("search time tree (sec): ",end-start)
+    print("search time tree (sec): ",end-start)
     
-    # print("---------------------")
+    print("---------------------")
     
     
 main()
