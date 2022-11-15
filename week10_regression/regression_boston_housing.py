@@ -1,8 +1,10 @@
 import os
-# os.system("sudo pip3 install sklearn")
+os.system("sudo pip3 install sklearn")
+os.system("sudo pip3 install scikit-learn")
 
 import matplotlib.pyplot as plt
 import numpy as np
+import sklearn
 from sklearn import datasets, linear_model, metrics
 
 # load the boston dataset
@@ -13,9 +15,10 @@ X = boston.data
 y = boston.target
 
 
-X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).reshape(-1,1)
-y = np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])#.reshape(-1,1)
- 
+# X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).reshape(-1,1)
+# y = np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])#.reshape(-1,1)
+
+
 # splitting X and y into training and testing sets
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4,
@@ -57,4 +60,4 @@ plt.title("Residual errors")
  
 ## method call for showing the plot
 plt.show()
-plt.savefig("/home/ubuntu/environment/data5500.fa21/week10_regression/regression_boston_housing.png")
+plt.savefig("/home/ubuntu/environment/data5500_fall2022/week10_regression/regression_boston_housing.png")

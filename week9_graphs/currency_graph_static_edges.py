@@ -7,7 +7,7 @@ from itertools import permutations
 import networkx as nx
 from networkx.classes.function import path_weight
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 rates = [

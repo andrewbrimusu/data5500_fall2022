@@ -1,6 +1,7 @@
 
 import random
 import time
+import code
 # Python program to demonstrate delete operation
 # in binary search tree
 
@@ -67,10 +68,19 @@ def inorder(root):
     	inorder(root.right)
  
 # Task 4. Write a pre-order print
-
+# print tree inorder
+def preorder(root):
+    if root is not None:
+    	print(root.key, end=" ")
+    	preorder(root.left)
+    	preorder(root.right)
 
 # Task 5. Write a post-order print
-
+def postorder(root):
+    if root is not None:
+    	postorder(root.left)
+    	postorder(root.right)
+    	print(root.key, end=" ")
 		
 
 # Given a binary search tree and a key, this function
@@ -140,6 +150,15 @@ def main():
     root = insert(root, 60)
     root = insert(root, 80)
     
+    display(root)
+    
+    
+    
+    
+    
+    
+    
+    
     #task 1 function call
     findMin(root)
     findMinRecursive(root)
@@ -149,6 +168,17 @@ def main():
     # traversing the tree
     print("Inorder traversal of the given tree")
     inorder(root)
+    
+    # code.interact(local=locals())
+    
+    
+    print("\nPreorder traversal of the given tree")
+    preorder(root)
+    
+    
+    print("\nPostorder traversal of the given tree")
+    postorder(root)
+    
     
     # deleting 
     print("\nDelete 20")

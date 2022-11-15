@@ -1,3 +1,6 @@
+import os
+# os.system("sudo pip3 install missingno")
+
 import numpy as np # linear algebra
 import pandas as pd # data processing
 from sklearn.linear_model import LinearRegression
@@ -19,7 +22,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 matplotlib.style.use('ggplot')
 
-dataset = pd.read_csv("/home/ec2-user/environment/code/week11_ml/cars.csv")
+dataset = pd.read_csv("/home/ubuntu/environment/data5500_fall2022/week11_ml/cars.csv")
 dataset.describe()
 
 # Finding all the columns with NULL values

@@ -1,3 +1,5 @@
+import os
+os.system("sudo pip3 install pandas")
 
 # Compare Algorithms
 import pandas
